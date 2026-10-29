@@ -1,0 +1,310 @@
+/* =========================================================
+   GameLand v4 — theme.css
+   ۴ تم: Dark (پیش‌فرض) | Light | Amber | Neon
+   ========================================================= */
+
+/* =========================================================
+   تم پیش‌فرض (Dark)
+   ========================================================= */
+:root,
+[data-theme="dark"] {
+  --bg: #07070f;
+  --bg-soft: #0b0b18;
+  --panel: rgba(255, 255, 255, 0.04);
+  --panel-hover: rgba(255, 255, 255, 0.07);
+
+  --text: #e8e8f0;
+  --muted: #8b8ba3;
+  --dim: #5b5b7a;
+
+  --line: rgba(255, 255, 255, 0.09);
+  --line-strong: rgba(255, 255, 255, 0.18);
+
+  --a1: #7c5cff;
+  --a2: #00e5ff;
+  --a3: #ff3b7b;
+
+  --glow-1: rgba(124, 92, 255, 0.20);
+  --glow-2: rgba(0, 229, 255, 0.13);
+  --glow-3: rgba(255, 59, 123, 0.10);
+
+  --success: #22c55e;
+  --warn: #f59e0b;
+  --error: #ef4444;
+  --info: #00e5ff;
+  --gold: #eab308;
+
+  --radius: 20px;
+  --radius-sm: 14px;
+  --radius-xs: 10px;
+
+  --shadow-sm: 0 4px 12px rgba(0, 0, 0, 0.3);
+  --shadow-md: 0 12px 32px rgba(0, 0, 0, 0.4);
+  --shadow-lg: 0 24px 64px rgba(0, 0, 0, 0.5);
+
+  color-scheme: dark;
+}
+
+/* =========================================================
+   تم روشن (Light)
+   ========================================================= */
+[data-theme="light"] {
+  --bg: #f6f6fb;
+  --bg-soft: #ffffff;
+  --panel: rgba(0, 0, 0, 0.035);
+  --panel-hover: rgba(0, 0, 0, 0.06);
+
+  --text: #16162a;
+  --muted: #5a5a78;
+  --dim: #9494a8;
+
+  --line: rgba(0, 0, 0, 0.09);
+  --line-strong: rgba(0, 0, 0, 0.18);
+
+  --a1: #6d4aff;
+  --a2: #0099cc;
+  --a3: #e11d48;
+
+  --glow-1: rgba(109, 74, 255, 0.14);
+  --glow-2: rgba(0, 153, 204, 0.10);
+  --glow-3: rgba(225, 29, 72, 0.07);
+
+  --success: #16a34a;
+  --warn: #d97706;
+  --error: #dc2626;
+  --info: #0891b2;
+  --gold: #ca8a04;
+
+  --shadow-sm: 0 4px 12px rgba(0, 0, 0, 0.06);
+  --shadow-md: 0 12px 32px rgba(0, 0, 0, 0.08);
+  --shadow-lg: 0 24px 64px rgba(0, 0, 0, 0.12);
+
+  color-scheme: light;
+}
+
+/* =========================================================
+   تم کهربا (Amber)
+   ========================================================= */
+[data-theme="amber"] {
+  --bg: #1a0f00;
+  --bg-soft: #241500;
+  --panel: rgba(255, 200, 100, 0.05);
+  --panel-hover: rgba(255, 200, 100, 0.09);
+
+  --text: #fff8ee;
+  --muted: #c4a882;
+  --dim: #8a7048;
+
+  --line: rgba(255, 200, 100, 0.12);
+  --line-strong: rgba(255, 200, 100, 0.24);
+
+  --a1: #f59e0b;
+  --a2: #f97316;
+  --a3: #eab308;
+
+  --glow-1: rgba(245, 158, 11, 0.20);
+  --glow-2: rgba(249, 115, 22, 0.14);
+  --glow-3: rgba(234, 179, 8, 0.10);
+
+  --success: #22c55e;
+  --warn: #eab308;
+  --error: #ef4444;
+  --info: #f59e0b;
+  --gold: #fbbf24;
+
+  --shadow-sm: 0 4px 12px rgba(0, 0, 0, 0.5);
+  --shadow-md: 0 12px 32px rgba(0, 0, 0, 0.6);
+  --shadow-lg: 0 24px 64px rgba(0, 0, 0, 0.7);
+
+  color-scheme: dark;
+}
+
+/* =========================================================
+   تم نئون (Neon)
+   ========================================================= */
+[data-theme="neon"] {
+  --bg: #0a0014;
+  --bg-soft: #0f0020;
+  --panel: rgba(167, 139, 250, 0.05);
+  --panel-hover: rgba(167, 139, 250, 0.10);
+
+  --text: #f0e6ff;
+  --muted: #a78bfa;
+  --dim: #6d28d9;
+
+  --line: rgba(167, 139, 250, 0.18);
+  --line-strong: rgba(167, 139, 250, 0.35);
+
+  --a1: #ff00e5;
+  --a2: #00fff0;
+  --a3: #a855f7;
+
+  --glow-1: rgba(255, 0, 229, 0.25);
+  --glow-2: rgba(0, 255, 240, 0.18);
+  --glow-3: rgba(168, 85, 247, 0.15);
+
+  --success: #00ff88;
+  --warn: #ffcc00;
+  --error: #ff3366;
+  --info: #00fff0;
+  --gold: #ffcc00;
+
+  --shadow-sm: 0 4px 12px rgba(255, 0, 229, 0.15);
+  --shadow-md: 0 12px 32px rgba(255, 0, 229, 0.20);
+  --shadow-lg: 0 24px 64px rgba(255, 0, 229, 0.25);
+
+  color-scheme: dark;
+}
+
+/* =========================================================
+   افکت‌های ویژه هر تم
+   ========================================================= */
+
+[data-theme="neon"] .logo-mark {
+  box-shadow:
+    0 0 30px rgba(255, 0, 229, 0.8),
+    0 0 60px rgba(0, 255, 240, 0.4);
+}
+
+[data-theme="neon"] .btn.primary {
+  box-shadow:
+    0 8px 24px rgba(255, 0, 229, 0.5),
+    0 0 30px rgba(0, 255, 240, 0.3);
+}
+
+[data-theme="light"] .game-card:hover {
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.10);
+}
+
+[data-theme="amber"] .game-card:hover {
+  border-color: rgba(245, 158, 11, 0.4);
+}
+
+/* =========================================================
+   Smooth transition + Selection
+   ========================================================= */
+html,
+body {
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+::selection {
+  background: var(--a1);
+  color: #fff;
+}
+/* =========================================================
+   GameLand v5 — Theme Enhancements for Effects
+   ========================================================= */
+
+/* =========================================================
+   Theme-specific Aurora Colors
+   ========================================================= */
+[data-theme="light"] .aurora-blob-1 {
+  background: radial-gradient(circle, rgba(109, 74, 255, 0.4), transparent 70%);
+}
+
+[data-theme="light"] .aurora-blob-2 {
+  background: radial-gradient(circle, rgba(0, 153, 204, 0.3), transparent 70%);
+}
+
+[data-theme="light"] .aurora-blob-3 {
+  background: radial-gradient(circle, rgba(225, 29, 72, 0.25), transparent 70%);
+}
+
+[data-theme="amber"] .aurora-blob-1 {
+  background: radial-gradient(circle, rgba(245, 158, 11, 0.6), transparent 70%);
+}
+
+[data-theme="amber"] .aurora-blob-2 {
+  background: radial-gradient(circle, rgba(249, 115, 22, 0.5), transparent 70%);
+}
+
+[data-theme="amber"] .aurora-blob-3 {
+  background: radial-gradient(circle, rgba(234, 179, 8, 0.4), transparent 70%);
+}
+
+[data-theme="neon"] .aurora-blob-1 {
+  background: radial-gradient(circle, rgba(255, 0, 229, 0.7), transparent 70%);
+}
+
+[data-theme="neon"] .aurora-blob-2 {
+  background: radial-gradient(circle, rgba(0, 255, 240, 0.55), transparent 70%);
+}
+
+[data-theme="neon"] .aurora-blob-3 {
+  background: radial-gradient(circle, rgba(168, 85, 247, 0.5), transparent 70%);
+}
+
+/* =========================================================
+   Theme-specific Particles
+   ========================================================= */
+[data-theme="light"] .floating-particle {
+  opacity: 0.2;
+}
+
+[data-theme="neon"] .floating-particle {
+  opacity: 0.5;
+  filter: brightness(1.4);
+}
+
+/* =========================================================
+   Theme-specific Skeleton
+   ========================================================= */
+[data-theme="light"] .skeleton {
+  background: linear-gradient(
+    90deg,
+    rgba(0, 0, 0, 0.04) 0%,
+    rgba(0, 0, 0, 0.08) 50%,
+    rgba(0, 0, 0, 0.04) 100%
+  );
+  background-size: 200% 100%;
+}
+
+[data-theme="neon"] .skeleton {
+  background: linear-gradient(
+    90deg,
+    rgba(167, 139, 250, 0.06) 0%,
+    rgba(255, 0, 229, 0.12) 50%,
+    rgba(167, 139, 250, 0.06) 100%
+  );
+  background-size: 200% 100%;
+}
+
+/* =========================================================
+   Theme-specific Ripple
+   ========================================================= */
+[data-theme="light"] .ripple-effect {
+  background: rgba(0, 0, 0, 0.1);
+}
+
+[data-theme="neon"] .ripple-effect {
+  background: rgba(255, 0, 229, 0.4);
+}
+
+/* =========================================================
+   Theme-specific Card Shine
+   ========================================================= */
+[data-theme="neon"] .game-card::before {
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 0, 229, 0.25),
+    transparent
+  );
+}
+
+[data-theme="amber"] .game-card::before {
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(245, 158, 11, 0.2),
+    transparent
+  );
+}
+
+/* =========================================================
+   Theme Transition Timing
+   ========================================================= */
+html[data-theme-transition] * {
+  transition: background-color 0.4s ease, border-color 0.4s ease, color 0.4s ease !important;
+}

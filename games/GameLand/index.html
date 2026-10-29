@@ -1,0 +1,463 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl" data-theme="dark">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no,viewport-fit=cover">
+<meta name="theme-color" content="#07070f">
+<title>🎮 GameLand — Krypton Studio</title>
+<meta name="description" content="مجموعه ۴۰+ مینی‌گیم آنلاین رایگان از Krypton Studio — بدون نصب و معطلی">
+
+<!-- PWA -->
+<link rel="manifest" href="manifest.json">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="GameLand">
+
+<!-- Fonts -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+<!-- Styles -->
+<link rel="stylesheet" href="assets/style.css">
+<link rel="stylesheet" href="assets/theme.css">
+<link rel="stylesheet" href="assets/animations.css">
+<link rel="stylesheet" href="assets/layout.css">      <!-- 🆕 -->
+<link rel="stylesheet" href="assets/components.css">   <!-- 🆕 -->
+
+<!-- Favicon -->
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🎮</text></svg>">
+</head>
+<body>
+
+<!-- ============================================ -->
+<!-- Preloader                                    -->
+<!-- ============================================ -->
+<div class="preloader" id="preloader">
+  <div class="preloader-content">
+    <div class="preloader-icon">🎮</div>
+    <div class="preloader-text">GameLand</div>
+    <div class="preloader-sub">v7.0</div>
+    <div class="preloader-bar"><div class="preloader-fill"></div></div>
+  </div>
+</div>
+
+<!-- ============================================ -->
+<!-- App Shell                                    -->
+<!-- ============================================ -->
+<div class="app-shell" id="appShell">
+
+  <!-- ============ SIDEBAR (Desktop) ============ -->
+  <aside class="app-sidebar" id="appSidebar">
+    <div class="sidebar-brand">
+      <a href="#home" class="app-logo" id="logoLink">
+        <div class="logo-mark">🎮</div>
+        <div class="logo-text">
+          <b>GameLand</b>
+          <small>KRYPTON STUDIO</small>
+        </div>
+      </a>
+    </div>
+
+    <nav class="sidebar-nav">
+      <div class="sidebar-section">
+        <span class="sidebar-label">کاوش</span>
+        <a href="#home" class="sidebar-item" data-nav="home">
+          <span class="si-icon">🏠</span>
+          <span class="si-label">خانه</span>
+        </a>
+        <a href="#favorites" class="sidebar-item" data-nav="favorites">
+          <span class="si-icon">⭐</span>
+          <span class="si-label">علاقه‌مندی‌ها</span>
+          <span class="si-badge" id="sidebarFavCount">0</span>
+        </a>
+        <a href="#achievements" class="sidebar-item" data-nav="achievements">
+          <span class="si-icon">🏆</span>
+          <span class="si-label">دستاوردها</span>
+        </a>
+        <a href="#stats" class="sidebar-item" data-nav="stats">
+          <span class="si-icon">📊</span>
+          <span class="si-label">آمار</span>
+        </a>
+      </div>
+
+      <div class="sidebar-section">
+        <span class="sidebar-label">سرگرمی</span>
+        <a href="#shop" class="sidebar-item" data-nav="shop">
+          <span class="si-icon">🛍️</span>
+          <span class="si-label">فروشگاه</span>
+        </a>
+        <a href="#rewards" class="sidebar-item" data-nav="rewards">
+          <span class="si-icon">🎁</span>
+          <span class="si-label">جایزه روزانه</span>
+          <span class="si-badge" id="sidebarRewardBadge"></span>
+        </a>
+        <a href="#missions" class="sidebar-item" data-nav="missions">
+          <span class="si-icon">🎯</span>
+          <span class="si-label">ماموریت‌ها</span>
+        </a>
+        <a href="#events" class="sidebar-item" data-nav="events">
+          <span class="si-icon">🎉</span>
+          <span class="si-label">رویدادها</span>
+          <span class="si-badge new">جدید</span>
+        </a>
+      </div>
+
+      <div class="sidebar-section">
+        <span class="sidebar-label">پروفایل</span>
+        <a href="#profile" class="sidebar-item" data-nav="profile">
+          <span class="si-icon">👤</span>
+          <span class="si-label">پروفایل</span>
+        </a>
+        <a href="#settings" class="sidebar-item" data-nav="settings">
+          <span class="si-icon">⚙️</span>
+          <span class="si-label">تنظیمات</span>
+        </a>
+      </div>
+    </nav>
+
+    <div class="sidebar-footer">
+      <div class="sidebar-coins" id="sidebarCoins">
+        <span>🪙</span>
+        <b>0</b>
+      </div>
+      <div class="sidebar-version">v7.0</div>
+    </div>
+  </aside>
+
+  <!-- ============ MAIN AREA ============ -->
+  <div class="app-main-area">
+
+    <!-- ============ TOP HEADER ============ -->
+    <header class="app-header" id="appHeader">
+      <!-- Mobile menu toggle -->
+      <button class="header-btn header-menu-btn" id="mobileMenuBtn" aria-label="منو">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round">
+          <line x1="3" y1="6" x2="21" y2="6"/>
+          <line x1="3" y1="12" x2="21" y2="12"/>
+          <line x1="3" y1="18" x2="21" y2="18"/>
+        </svg>
+      </button>
+
+      <!-- Logo (mobile only) -->
+      <a href="#home" class="header-logo" id="mobileLogo">
+        <span class="header-logo-icon">🎮</span>
+      </a>
+
+      <!-- Search -->
+      <div class="header-search" id="headerSearch">
+        <span class="header-search-icon">🔍</span>
+        <input type="text" id="globalSearch" placeholder="جستجوی بازی..." autocomplete="off">
+        <kbd class="header-search-kbd">Ctrl+K</kbd>
+      </div>
+
+      <!-- Actions -->
+      <div class="header-actions">
+        <!-- Coins -->
+        <button class="header-btn header-coins-btn" id="headerCoins" title="سکه‌ها">
+          <span class="hb-icon">🪙</span>
+          <b class="hb-value">0</b>
+        </button>
+
+        <!-- Theme toggle -->
+        <button class="header-btn" id="themeBtn" title="تغییر تم">
+          <span class="hb-icon">🌙</span>
+        </button>
+
+        <!-- Notifications -->
+        <button class="header-btn header-notif-btn" id="headerNotif" title="اعلان‌ها">
+          <span class="hb-icon">🔔</span>
+          <span class="header-notif-dot" id="notifDot"></span>
+        </button>
+
+        <!-- Profile -->
+        <button class="header-profile" id="headerProfile" title="پروفایل">
+          <span class="hp-avatar" id="headerAvatar">👤</span>
+          <span class="hp-chevron">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round">
+              <polyline points="6 9 12 15 18 9"/>
+            </svg>
+          </span>
+        </button>
+      </div>
+    </header>
+
+    <!-- ============ PAGE CONTENT ============ -->
+    <main class="app-main" id="appMain">
+      <!-- App View -->
+      <section id="appView">
+        <div id="viewRoot"></div>
+      </section>
+
+      <!-- Game View -->
+      <section id="gameView" class="game-view hidden">
+        <div class="game-top">
+          <button class="btn-back" id="gameBackBtn">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round">
+              <path d="M19 12H5M12 19l-7-7 7-7"/>
+            </svg>
+            <span>بازگشت</span>
+          </button>
+          <h2 id="gameTitle"></h2>
+          <div class="game-actions">
+            <button class="icon-btn" id="gameFavBtn" title="علاقه‌مندی">☆</button>
+            <button class="icon-btn" id="gameMenuBtn" title="منو">☰</button>
+          </div>
+        </div>
+        <div class="game-stage" id="gameArea"></div>
+      </section>
+    </main>
+
+    <!-- ============ FOOTER ============ -->
+    <footer class="app-footer">
+      <div>
+        ساخته شده با ❤️ توسط <span class="k">Krypton Studio</span>
+      </div>
+      <div>
+        <b>GameLand v7</b> © 2026
+      </div>
+    </footer>
+
+  </div>
+</div>
+
+<!-- ============================================ -->
+<!-- MOBILE DRAWER (Sidebar on mobile)           -->
+<!-- ============================================ -->
+<div class="mobile-drawer-backdrop" id="mobileDrawerBackdrop"></div>
+<aside class="mobile-drawer" id="mobileDrawer">
+  <div class="mobile-drawer-header">
+    <a href="#home" class="app-logo">
+      <div class="logo-mark">🎮</div>
+      <div class="logo-text">
+        <b>GameLand</b>
+        <small>KRYPTON STUDIO</small>
+      </div>
+    </a>
+    <button class="icon-btn" id="mobileDrawerClose">×</button>
+  </div>
+  <nav class="mobile-drawer-nav" id="mobileDrawerNav">
+    <!-- کلون از sidebar nav -->
+  </nav>
+</aside>
+
+<!-- ============================================ -->
+<!-- BOTTOM NAV (Mobile)                          -->
+<!-- ============================================ -->
+<nav class="bottom-nav" id="bottomNav">
+  <button data-nav="home" class="active" title="خانه">
+    <span class="nav-icon">🏠</span>
+    <span class="nav-label">خانه</span>
+  </button>
+  <button data-nav="favorites" title="علاقه‌مندی">
+    <span class="nav-icon">⭐</span>
+    <span class="nav-label">علاقه‌مندی</span>
+  </button>
+  <button data-nav="achievements" title="دستاوردها">
+    <span class="nav-icon">🏆</span>
+    <span class="nav-label">دستاورد</span>
+  </button>
+  <button data-nav="shop" title="فروشگاه">
+    <span class="nav-icon">🛍️</span>
+    <span class="nav-label">فروشگاه</span>
+  </button>
+  <button data-nav="profile" title="پروفایل">
+    <span class="nav-icon">👤</span>
+    <span class="nav-label">پروفایل</span>
+  </button>
+</nav>
+
+<!-- ============================================ -->
+<!-- PROFILE DROPDOWN                             -->
+<!-- ============================================ -->
+<div class="profile-dropdown" id="profileDropdown">
+  <div class="pd-header">
+    <div class="pd-avatar" id="pdAvatar">👤</div>
+    <div class="pd-info">
+      <b id="pdName">بازیکن</b>
+      <span id="pdCoins">🪙 0</span>
+    </div>
+  </div>
+  <div class="pd-menu">
+    <a href="#profile" class="pd-item">
+      <span>👤</span>
+      <span>پروفایل من</span>
+    </a>
+    <a href="#stats" class="pd-item">
+      <span>📊</span>
+      <span>آمار من</span>
+    </a>
+    <a href="#achievements" class="pd-item">
+      <span>🏆</span>
+      <span>دستاوردها</span>
+    </a>
+    <div class="pd-divider"></div>
+    <a href="#settings" class="pd-item">
+      <span>⚙️</span>
+      <span>تنظیمات</span>
+    </a>
+    <button class="pd-item pd-item-danger" id="pdReset">
+      <span>🗑️</span>
+      <span>پاک کردن داده‌ها</span>
+    </button>
+  </div>
+</div>
+
+<!-- ============================================ -->
+<!-- NOTIFICATION CENTER                          -->
+<!-- ============================================ -->
+<div class="notif-backdrop" id="notifBackdrop"></div>
+<aside class="notif-panel" id="notifPanel">
+  <div class="notif-header">
+    <h3>🔔 اعلان‌ها</h3>
+    <button class="icon-btn" id="notifClose">×</button>
+  </div>
+  <div class="notif-list" id="notifList">
+    <div class="notif-empty">
+      <div class="notif-empty-icon">🔕</div>
+      <p>هنوز اعلانی نداری</p>
+    </div>
+  </div>
+  <div class="notif-footer">
+    <button class="btn btn-block" id="notifClearAll">پاک کردن همه</button>
+  </div>
+</aside>
+
+<!-- ============================================ -->
+<!-- MUSIC PLAYER MINI                            -->
+<!-- ============================================ -->
+<div class="music-player" id="musicPlayer">
+  <button class="mp-toggle" id="mpToggle" title="پخش موسیقی">
+    <span class="mp-toggle-icon">🎵</span>
+    <span class="mp-equalizer">
+      <span></span><span></span><span></span>
+    </span>
+  </button>
+  <div class="mp-body">
+    <div class="mp-cover" id="mpCover">🎵</div>
+    <div class="mp-info">
+      <div class="mp-title" id="mpTitle">موسیقی پس‌زمینه</div>
+      <div class="mp-sub" id="mpSub">آماده پخش</div>
+    </div>
+    <div class="mp-controls">
+      <button class="mp-btn" id="mpPrev">⏮</button>
+      <button class="mp-btn mp-btn-play" id="mpPlay">▶</button>
+      <button class="mp-btn" id="mpNext">⏭</button>
+    </div>
+    <div class="mp-volume">
+      <span>🔊</span>
+      <input type="range" id="mpVolume" min="0" max="100" value="30">
+    </div>
+  </div>
+</div>
+
+<!-- ============================================ -->
+<!-- QUICK ACTIONS FAB                            -->
+<!-- ============================================ -->
+<div class="quick-actions" id="quickActions">
+  <div class="qa-menu" id="qaMenu">
+    <button class="qa-item" data-action="random" title="بازی تصادفی">
+      <span class="qa-icon">🎲</span>
+      <span class="qa-label">تصادفی</span>
+    </button>
+    <button class="qa-item" data-action="daily" title="چالش امروز">
+      <span class="qa-icon">📅</span>
+      <span class="qa-label">چالش</span>
+    </button>
+    <button class="qa-item" data-action="reward" title="جایزه روزانه">
+      <span class="qa-icon">🎁</span>
+      <span class="qa-label">جایزه</span>
+    </button>
+    <button class="qa-item" data-action="shop" title="فروشگاه">
+      <span class="qa-icon">🛍️</span>
+      <span class="qa-label">فروشگاه</span>
+    </button>
+  </div>
+  <button class="qa-fab" id="qaFab" title="دسترسی سریع">
+    <span class="qa-fab-icon">＋</span>
+  </button>
+</div>
+
+<!-- ============================================ -->
+<!-- SCRIPTS                                       -->
+<!-- ============================================ -->
+
+<!-- Core -->
+<script src="app/core.js"></script>
+<script src="app/storage.js"></script>
+<script src="app/settings.js"></script>
+<script src="app/audio.js"></script>
+
+<!-- Systems -->
+<script src="app/i18n.js"></script>
+<script src="app/ui.js"></script>
+<script src="app/animations.js"></script>
+<script src="app/animations-pro.js"></script>
+<script src="app/effects.js"></script>
+<script src="app/theme.js"></script>
+<script src="app/registry.js"></script>
+
+<!-- Data -->
+<script src="app/achievements.js"></script>
+<script src="app/challenges.js"></script>
+<script src="app/leaderboard.js"></script>
+<script src="app/stats.js"></script>
+<script src="app/shop.js"></script>
+<script src="app/rewards.js"></script>
+<script src="app/profile.js"></script>
+
+<!-- 🆕 v7 Modules -->
+<script src="app/layout.js"></script>          <!-- 🆕 Layout Manager -->
+<script src="app/music-player.js"></script>    <!-- 🆕 Music Player -->
+<script src="app/notifications.js"></script>   <!-- 🆕 Notifications -->
+<script src="app/quick-actions.js"></script>   <!-- 🆕 Quick Actions -->
+<script src="app/profile-menu.js"></script>    <!-- 🆕 Profile Dropdown -->
+<script src="app/missions.js"></script>        <!-- 🆕 Missions (future) -->
+
+<!-- Games -->
+<script src="games/snake.js"></script>
+<script src="games/g2048.js"></script>
+<script src="games/ttt.js"></script>
+<script src="games/memory.js"></script>
+<script src="games/reaction.js"></script>
+<script src="games/whack.js"></script>
+<script src="games/breakout.js"></script>
+<script src="games/rps.js"></script>
+<script src="games/bubble.js"></script>
+<script src="games/flappy.js"></script>
+<script src="games/pong.js"></script>
+<script src="games/tetris.js"></script>
+<script src="games/puzzle.js"></script>
+<script src="games/minesweeper.js"></script>
+<script src="games/simon.js"></script>
+<script src="games/connect4.js"></script>
+<script src="games/lightsout.js"></script>
+<script src="games/sequence.js"></script>
+<script src="games/dice.js"></script>
+<script src="games/hangman.js"></script>
+<script src="games/slot.js"></script>
+<script src="games/color-match.js"></script>
+<script src="games/reaction-grid.js"></script>
+<script src="games/word-search.js"></script>
+<script src="games/yahtzee.js"></script>
+
+<!-- Games List + Router + App -->
+<script src="app/games-list.js"></script>
+<script src="app/hub.js"></script>
+<script src="app/views.js"></script>
+<script src="app/router.js"></script>
+<script src="app/app.js"></script>
+
+<!-- Service Worker -->
+<script>
+if ('serviceWorker' in navigator && location.protocol !== 'file:') {
+  window.addEventListener('load', () => {
+    navigator.serviceWorker.register('sw.js')
+      .then(reg => console.log('SW registered:', reg.scope))
+      .catch(err => console.warn('SW failed:', err));
+  });
+}
+</script>
+
+</body>
+</html>

@@ -1,0 +1,10 @@
+{
+  "name": "GameLand \u2014 Krypton Studio",
+  "short_name": "GameLand",
+  "start_url": "./index.html",
+  "display": "standalone",
+  "background_color": "#070a12",
+  "theme_color": "#070a12",
+  "description": "Offline game hub by Krypton Studio",
+  "icons": []
+}

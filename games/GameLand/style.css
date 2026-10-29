@@ -1,0 +1,2076 @@
+/* =========================================================
+   GameLand — Krypton Studio
+   استایل کامل پلتفرم
+   ========================================================= */
+
+/* ---------- Reset ---------- */
+*{box-sizing:border-box;margin:0;padding:0}
+
+/* ---------- متغیرها ---------- */
+:root{
+  --bg:#07070f;
+  --text:#e8e8f0;
+  --muted:#8b8ba3;
+  --line:rgba(255,255,255,.09);
+  --panel:rgba(255,255,255,.04);
+  --a1:#7c5cff;
+  --a2:#00e5ff;
+  --a3:#ff3b7b;
+  --radius:20px;
+  --radius-sm:14px;
+}
+
+html{scroll-behavior:smooth}
+
+body{
+  font-family:'Vazirmatn',system-ui,-apple-system,sans-serif;
+  background:var(--bg);
+  color:var(--text);
+  min-height:100vh;
+  overflow-x:hidden;
+  -webkit-tap-highlight-color:transparent;
+  line-height:1.6;
+}
+
+/* ---------- پس‌زمینه تزئینی ---------- */
+body::before{
+  content:'';
+  position:fixed;
+  inset:0;
+  pointer-events:none;
+  z-index:0;
+  background:
+    radial-gradient(650px 420px at 12% -5%, rgba(124,92,255,.20), transparent 62%),
+    radial-gradient(650px 420px at 88% 5%, rgba(0,229,255,.13), transparent 62%),
+    radial-gradient(900px 620px at 50% 110%, rgba(255,59,123,.10), transparent 62%);
+}
+
+/* ---------- کانتینر ---------- */
+.wrap{
+  position:relative;
+  z-index:1;
+  max-width:1080px;
+  margin:0 auto;
+  padding:0 18px 70px;
+}
+
+.hidden{display:none !important}
+
+/* =========================================================
+   هدر
+   ========================================================= */
+header{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  padding:22px 0 10px;
+  flex-wrap:wrap;
+  gap:12px;
+}
+
+.logo{
+  display:flex;
+  align-items:center;
+  gap:12px;
+  text-decoration:none;
+  color:inherit;
+}
+
+.logo-mark{
+  width:48px;
+  height:48px;
+  border-radius:15px;
+  display:grid;
+  place-items:center;
+  font-size:25px;
+  background:linear-gradient(135deg,var(--a1),var(--a2));
+  box-shadow:0 0 26px rgba(124,92,255,.5);
+  flex-shrink:0;
+}
+
+.logo h1{
+  font-size:20px;
+  font-weight:800;
+  letter-spacing:.4px;
+  line-height:1.2;
+}
+
+.logo small{
+  font-size:10px;
+  color:var(--muted);
+  letter-spacing:2.5px;
+  font-weight:600;
+}
+
+.badge{
+  font-size:12px;
+  color:#a9a9c4;
+  border:1px solid var(--line);
+  padding:7px 14px;
+  border-radius:999px;
+  background:var(--panel);
+  white-space:nowrap;
+}
+
+/* =========================================================
+   بخش Hero (صفحه اصلی)
+   ========================================================= */
+.hero{
+  text-align:center;
+  padding:30px 0 38px;
+}
+
+.hero h2{
+  font-size:clamp(25px,4.6vw,42px);
+  font-weight:800;
+  margin-bottom:14px;
+  line-height:1.5;
+}
+
+.grad{
+  background:linear-gradient(120deg,var(--a1),var(--a2) 45%,var(--a3));
+  -webkit-background-clip:text;
+  background-clip:text;
+  color:transparent;
+}
+
+.hero p{
+  color:var(--muted);
+  max-width:580px;
+  margin:0 auto;
+  line-height:2;
+  font-size:15px;
+}
+
+/* =========================================================
+   گرید کارت‌های بازی
+   ========================================================= */
+.grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fill,minmax(228px,1fr));
+  gap:16px;
+}
+
+.card{
+  position:relative;
+  background:var(--panel);
+  border:1px solid var(--line);
+  border-radius:var(--radius);
+  padding:22px;
+  cursor:pointer;
+  transition:.25s;
+  overflow:hidden;
+  text-decoration:none;
+  color:inherit;
+  display:block;
+}
+
+.card:hover{
+  transform:translateY(-6px);
+  border-color:rgba(255,255,255,.22);
+  background:rgba(255,255,255,.07);
+}
+
+.card::after{
+  content:'';
+  position:absolute;
+  inset:0;
+  border-radius:var(--radius);
+  pointer-events:none;
+  background:radial-gradient(240px 130px at 100% 0%, var(--c, transparent), transparent 70%);
+  opacity:0;
+  transition:.3s;
+}
+
+.card:hover::after{opacity:.26}
+
+.card .ico{
+  font-size:35px;
+  display:block;
+  margin-bottom:14px;
+  line-height:1;
+}
+
+.card h3{
+  font-size:17px;
+  margin-bottom:8px;
+  font-weight:800;
+}
+
+.card p{
+  font-size:13px;
+  color:var(--muted);
+  line-height:1.9;
+}
+
+.card .play{
+  margin-top:14px;
+  font-size:12px;
+  font-weight:700;
+  color:var(--c, var(--a2));
+  display:flex;
+  align-items:center;
+  gap:6px;
+  opacity:.85;
+}
+
+/* =========================================================
+   صفحه بازی
+   ========================================================= */
+.game-top{
+  display:flex;
+  align-items:center;
+  gap:14px;
+  padding:8px 0 22px;
+}
+
+.back{
+  font-family:inherit;
+  font-size:14px;
+  color:var(--text);
+  cursor:pointer;
+  background:var(--panel);
+  border:1px solid var(--line);
+  padding:10px 18px;
+  border-radius:12px;
+  transition:.2s;
+  white-space:nowrap;
+  text-decoration:none;
+  display:inline-flex;
+  align-items:center;
+  gap:6px;
+}
+
+.back:hover{background:rgba(255,255,255,.13)}
+
+.game-top h2{
+  font-size:18px;
+  font-weight:800;
+}
+
+.stage{
+  max-width:520px;
+  margin:0 auto;
+}
+
+/* =========================================================
+   HUD (نوار امتیاز)
+   ========================================================= */
+.hud{
+  display:flex;
+  gap:12px;
+  margin-bottom:14px;
+}
+
+.hud-box{
+  flex:1;
+  background:var(--panel);
+  border:1px solid var(--line);
+  border-radius:var(--radius-sm);
+  padding:10px 14px;
+  text-align:center;
+}
+
+.hud-box span{
+  display:block;
+  font-size:11px;
+  color:var(--muted);
+  margin-bottom:3px;
+}
+
+.hud-box b{
+  font-size:19px;
+  font-weight:800;
+}
+
+/* =========================================================
+   بوم (Canvas)
+   ========================================================= */
+.canvas-wrap{
+  position:relative;
+  border-radius:18px;
+  overflow:hidden;
+  border:1px solid var(--line);
+  background:#0b0b18;
+  line-height:0;
+}
+
+canvas{
+  display:block;
+  width:100%;
+  height:auto;
+  touch-action:none;
+}
+
+.board-wrap{position:relative}
+
+/* =========================================================
+   Overlay (روی بوم)
+   ========================================================= */
+.overlay{
+  position:absolute;
+  inset:0;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  gap:14px;
+  text-align:center;
+  background:rgba(7,7,15,.87);
+  backdrop-filter:blur(7px);
+  -webkit-backdrop-filter:blur(7px);
+  padding:24px;
+  line-height:1.7;
+  border-radius:18px;
+  z-index:5;
+}
+
+.overlay h3{
+  font-size:23px;
+  font-weight:800;
+}
+
+.overlay p{
+  color:var(--muted);
+  font-size:14px;
+}
+
+/* =========================================================
+   دکمه‌ها
+   ========================================================= */
+.btn{
+  font-family:inherit;
+  font-size:14px;
+  font-weight:700;
+  cursor:pointer;
+  padding:11px 24px;
+  border-radius:12px;
+  color:var(--text);
+  border:1px solid rgba(255,255,255,.15);
+  background:rgba(255,255,255,.07);
+  transition:.2s;
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  gap:8px;
+}
+
+.btn:hover{background:rgba(255,255,255,.15)}
+
+.btn.primary{
+  background:linear-gradient(135deg,var(--a1),var(--a2));
+  border:none;
+  color:#08080f;
+  box-shadow:0 8px 26px rgba(124,92,255,.4);
+}
+
+.btn.primary:hover{filter:brightness(1.12)}
+
+.hint{
+  text-align:center;
+  color:var(--muted);
+  font-size:13px;
+  margin-top:16px;
+  line-height:1.9;
+}
+
+/* =========================================================
+   D-Pad (مار)
+   ========================================================= */
+.dpad{
+  display:grid;
+  gap:8px;
+  margin:18px auto 0;
+  justify-content:center;
+  grid-template-columns:repeat(3,62px);
+  grid-template-areas:". u ." "l d r";
+}
+
+.dpad button{
+  height:56px;
+  border-radius:var(--radius-sm);
+  font-size:17px;
+  cursor:pointer;
+  background:rgba(255,255,255,.06);
+  border:1px solid var(--line);
+  color:var(--text);
+  transition:.12s;
+  font-family:inherit;
+}
+
+.dpad button:active{
+  background:rgba(124,92,255,.45);
+  transform:scale(.95);
+}
+
+.dpad button[data-d="up"]{grid-area:u}
+.dpad button[data-d="left"]{grid-area:l}
+.dpad button[data-d="down"]{grid-area:d}
+.dpad button[data-d="right"]{grid-area:r}
+
+/* =========================================================
+   ۲۰۴۸
+   ========================================================= */
+.g2048{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:10px;
+  background:rgba(255,255,255,.04);
+  border:1px solid var(--line);
+  padding:10px;
+  border-radius:18px;
+  touch-action:none;
+}
+
+.g2048 .cell{
+  aspect-ratio:1;
+  border-radius:12px;
+  display:grid;
+  place-items:center;
+  font-weight:800;
+  font-size:clamp(15px,4.4vw,26px);
+  color:#fff;
+  background:rgba(255,255,255,.045);
+  transition:.15s;
+}
+
+/* =========================================================
+   بازی حافظه
+   ========================================================= */
+.mem-grid{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:10px;
+}
+
+.mem-card{
+  aspect-ratio:1;
+  border-radius:var(--radius-sm);
+  cursor:pointer;
+  position:relative;
+  perspective:700px;
+}
+
+.mem-inner{
+  position:absolute;
+  inset:0;
+  transition:transform .42s;
+  transform-style:preserve-3d;
+}
+
+.mem-card.flipped .mem-inner{transform:rotateY(180deg)}
+
+.mem-face{
+  position:absolute;
+  inset:0;
+  border-radius:var(--radius-sm);
+  display:grid;
+  place-items:center;
+  backface-visibility:hidden;
+  -webkit-backface-visibility:hidden;
+}
+
+.mem-front{
+  background:linear-gradient(135deg,#221f3d,#15152a);
+  border:1px solid rgba(255,255,255,.1);
+  color:#5b5b7a;
+  font-size:20px;
+  font-weight:800;
+}
+
+.mem-back{
+  background:linear-gradient(135deg,rgba(124,92,255,.28),rgba(0,229,255,.15));
+  border:1px solid rgba(124,92,255,.45);
+  transform:rotateY(180deg);
+  font-size:28px;
+}
+
+.mem-card.done .mem-back{
+  background:linear-gradient(135deg,rgba(34,197,94,.35),rgba(22,163,74,.2));
+  border-color:rgba(34,197,94,.7);
+}
+
+/* =========================================================
+   مول‌زنی
+   ========================================================= */
+.wack-grid{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:12px;
+}
+
+.hole{
+  aspect-ratio:1;
+  border-radius:50%;
+  cursor:pointer;
+  user-select:none;
+  display:grid;
+  place-items:center;
+  font-size:34px;
+  transition:.12s;
+  background:radial-gradient(circle at 50% 62%, rgba(255,255,255,.07), rgba(255,255,255,.015));
+  border:2px solid rgba(255,255,255,.08);
+}
+
+.hole.active{
+  background:radial-gradient(circle at 50% 62%, rgba(34,197,94,.4), rgba(34,197,94,.08));
+  border-color:#22c55e;
+  transform:scale(.95);
+  box-shadow:0 0 24px rgba(34,197,94,.45);
+}
+
+/* =========================================================
+   تست سرعت
+   ========================================================= */
+.reaction{
+  height:270px;
+  border-radius:var(--radius);
+  display:grid;
+  place-items:center;
+  font-size:20px;
+  font-weight:800;
+  cursor:pointer;
+  user-select:none;
+  text-align:center;
+  padding:20px;
+  transition:background .12s,border-color .12s;
+  background:var(--panel);
+  border:1px solid var(--line);
+}
+
+.reaction.wait{
+  background:rgba(239,68,68,.22);
+  border-color:#ef4444;
+}
+
+.reaction.go{
+  background:rgba(34,197,94,.28);
+  border-color:#22c55e;
+}
+
+/* =========================================================
+   دوز (Tic Tac Toe)
+   ========================================================= */
+.ttt{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:10px;
+  max-width:340px;
+  margin:0 auto;
+}
+
+.ttt button{
+  aspect-ratio:1;
+  border-radius:16px;
+  font-size:44px;
+  font-weight:800;
+  font-family:inherit;
+  background:rgba(255,255,255,.04);
+  border:1px solid var(--line);
+  color:var(--text);
+  cursor:pointer;
+  transition:.15s;
+  display:grid;
+  place-items:center;
+}
+
+.ttt button:hover:not(:disabled){background:rgba(255,255,255,.1)}
+
+.ttt button.x{
+  color:#7c5cff;
+  text-shadow:0 0 20px rgba(124,92,255,.7);
+}
+
+.ttt button.o{
+  color:#00e5ff;
+  text-shadow:0 0 20px rgba(0,229,255,.7);
+}
+
+.ttt button.win{
+  background:rgba(34,197,94,.22);
+  border-color:#22c55e;
+  box-shadow:0 0 22px rgba(34,197,94,.4);
+}
+
+/* =========================================================
+   سنگ کاغذ قیچی
+   ========================================================= */
+.rps-choices{
+  display:flex;
+  gap:14px;
+  justify-content:center;
+  margin:24px 0;
+  flex-wrap:wrap;
+}
+
+.rps-choices button{
+  width:90px;
+  height:90px;
+  border-radius:22px;
+  font-size:38px;
+  cursor:pointer;
+  background:rgba(255,255,255,.05);
+  border:1px solid var(--line);
+  transition:.2s;
+}
+
+.rps-choices button:hover{
+  transform:translateY(-5px);
+  background:rgba(124,92,255,.22);
+  border-color:#7c5cff;
+}
+
+.rps-result{
+  text-align:center;
+  font-size:17px;
+  line-height:2;
+  min-height:90px;
+  font-weight:600;
+}
+
+/* =========================================================
+   فوتر
+   ========================================================= */
+footer{
+  text-align:center;
+  padding:50px 0 20px;
+  color:var(--muted);
+  font-size:13px;
+  line-height:2.1;
+}
+
+footer b{color:#c9c9e0}
+
+footer .k{
+  display:inline-block;
+  background:linear-gradient(120deg,var(--a1),var(--a2));
+  -webkit-background-clip:text;
+  background-clip:text;
+  color:transparent;
+  font-weight:800;
+}
+
+footer a{
+  color:var(--a2);
+  text-decoration:none;
+}
+
+footer a:hover{text-decoration:underline}
+
+/* =========================================================
+   موبایل
+   ========================================================= */
+@media(max-width:520px){
+  .card{padding:18px}
+  .hud-box b{font-size:17px}
+  .logo-mark{width:42px;height:42px;font-size:22px}
+  .badge{display:none}
+  .hero{padding:20px 0 30px}
+}
+/* ---------- حباب‌شکن ---------- */
+#bbCanvas{
+  max-width:100%;
+  height:auto;
+}
+/* =========================================================
+   آپدیت بزرگ — استایل‌های جدید
+   ========================================================= */
+
+/* ---------- ابزارهای Hub ---------- */
+.hub-tools{
+  display:flex;
+  gap:12px;
+  margin-bottom:24px;
+  flex-wrap:wrap;
+  align-items:center;
+}
+
+.search-wrap{
+  flex:1;
+  min-width:220px;
+  position:relative;
+}
+
+.search-wrap input{
+  width:100%;
+  font-family:inherit;
+  font-size:14px;
+  padding:12px 18px;
+  border-radius:14px;
+  background:var(--panel);
+  border:1px solid var(--line);
+  color:var(--text);
+  transition:.2s;
+}
+
+.search-wrap input:focus{
+  outline:none;
+  border-color:var(--a1);
+  box-shadow:0 0 0 3px rgba(124,92,255,.2);
+}
+
+.search-wrap input::placeholder{color:var(--muted)}
+
+.filter-btns{
+  display:flex;
+  gap:8px;
+  flex-wrap:wrap;
+}
+
+.filter-btns button{
+  font-family:inherit;
+  font-size:13px;
+  font-weight:600;
+  padding:10px 16px;
+  border-radius:100px;
+  background:var(--panel);
+  border:1px solid var(--line);
+  color:var(--muted);
+  cursor:pointer;
+  transition:.2s;
+  white-space:nowrap;
+}
+
+.filter-btns button:hover{
+  color:var(--text);
+  border-color:rgba(255,255,255,.2);
+}
+
+.filter-btns button.active{
+  background:linear-gradient(135deg,var(--a1),var(--a2));
+  color:#08080f;
+  border-color:transparent;
+  box-shadow:0 4px 14px rgba(124,92,255,.35);
+}
+
+.empty-msg{
+  text-align:center;
+  color:var(--muted);
+  font-size:15px;
+  padding:40px 0;
+}
+
+/* ---------- تگ روی کارت ---------- */
+.card .tag-line{
+  display:flex;
+  gap:6px;
+  flex-wrap:wrap;
+  margin-top:10px;
+}
+
+.card .mini-tag{
+  font-size:10px;
+  padding:3px 8px;
+  border-radius:100px;
+  background:rgba(255,255,255,.06);
+  color:var(--muted);
+  font-weight:600;
+}
+
+/* ---------- آمار ---------- */
+.hub-stats{
+  display:flex;
+  gap:14px;
+  justify-content:center;
+  flex-wrap:wrap;
+  margin-bottom:26px;
+}
+
+.stat-item{
+  background:var(--panel);
+  border:1px solid var(--line);
+  padding:10px 18px;
+  border-radius:14px;
+  text-align:center;
+  min-width:110px;
+}
+
+.stat-item b{
+  display:block;
+  font-size:22px;
+  font-weight:800;
+  background:linear-gradient(135deg,var(--a1),var(--a2));
+  -webkit-background-clip:text;
+  background-clip:text;
+  color:transparent;
+}
+
+.stat-item span{
+  font-size:11px;
+  color:var(--muted);
+}
+
+/* ---------- دکمه صدا ---------- */
+.sound-toggle{
+  position:fixed;
+  bottom:24px;
+  left:24px;
+  width:48px;
+  height:48px;
+  border-radius:50%;
+  border:1px solid var(--line);
+  background:rgba(20,20,32,.9);
+  backdrop-filter:blur(10px);
+  color:var(--text);
+  font-size:20px;
+  cursor:pointer;
+  display:grid;
+  place-items:center;
+  z-index:50;
+  transition:.2s;
+}
+
+.sound-toggle:hover{transform:scale(1.1)}
+.sound-toggle.off{opacity:.4}
+
+/* ---------- بهبود کارت ---------- */
+.card{
+  animation:fadeInUp .4s ease both;
+}
+
+@keyframes fadeInUp{
+  from{opacity:0;transform:translateY(12px)}
+  to{opacity:1;transform:translateY(0)}
+}
+
+.card .ico{
+  transition:transform .3s;
+}
+
+.card:hover .ico{
+  transform:scale(1.2) rotate(-8deg);
+}
+
+/* ---------- پینگ پونگ ---------- */
+.pong-wrap{
+  position:relative;
+  border-radius:18px;
+  overflow:hidden;
+  border:1px solid var(--line);
+  background:#0b0b18;
+}
+
+/* ---------- تتریس ---------- */
+.tetris-wrap{
+  display:flex;
+  gap:14px;
+  justify-content:center;
+  flex-wrap:wrap;
+}
+
+.tetris-next{
+  background:var(--panel);
+  border:1px solid var(--line);
+  border-radius:14px;
+  padding:12px;
+  text-align:center;
+  min-width:110px;
+}
+
+.tetris-next h4{
+  font-size:12px;
+  color:var(--muted);
+  margin-bottom:10px;
+  font-weight:600;
+}
+
+.tetris-next canvas{
+  background:#0b0b18;
+  border-radius:8px;
+}
+
+/* ---------- پازل کشویی ---------- */
+.puzzle-grid{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:8px;
+  max-width:340px;
+  margin:0 auto;
+  background:var(--panel);
+  padding:8px;
+  border-radius:18px;
+  border:1px solid var(--line);
+}
+
+.puzzle-grid button{
+  aspect-ratio:1;
+  border-radius:12px;
+  font-size:26px;
+  font-weight:800;
+  font-family:inherit;
+  background:linear-gradient(135deg,rgba(124,92,255,.2),rgba(0,229,255,.1));
+  border:1px solid rgba(124,92,255,.3);
+  color:var(--text);
+  cursor:pointer;
+  transition:.15s;
+  display:grid;
+  place-items:center;
+}
+
+.puzzle-grid button:hover:not(:disabled){
+  transform:scale(1.05);
+  background:linear-gradient(135deg,rgba(124,92,255,.35),rgba(0,229,255,.2));
+}
+
+.puzzle-grid button:disabled{
+  background:transparent;
+  border-color:transparent;
+  cursor:default;
+}
+
+/* ---------- مین‌یاب ---------- */
+.mine-grid{
+  display:grid;
+  gap:4px;
+  justify-content:center;
+  background:var(--panel);
+  padding:8px;
+  border-radius:14px;
+  border:1px solid var(--line);
+  margin:0 auto;
+}
+
+.mine-cell{
+  width:32px;
+  height:32px;
+  border-radius:6px;
+  font-size:14px;
+  font-weight:800;
+  font-family:inherit;
+  background:rgba(255,255,255,.06);
+  border:1px solid rgba(255,255,255,.08);
+  color:var(--text);
+  cursor:pointer;
+  display:grid;
+  place-items:center;
+  transition:.12s;
+  padding:0;
+}
+
+.mine-cell:hover:not(.revealed){
+  background:rgba(124,92,255,.25);
+}
+
+.mine-cell.revealed{
+  background:rgba(255,255,255,.02);
+  border-color:rgba(255,255,255,.04);
+  cursor:default;
+}
+
+.mine-cell.flagged{
+  background:rgba(255,59,123,.2);
+}
+
+.mine-cell.mine{
+  background:rgba(239,68,68,.35);
+  border-color:#ef4444;
+}
+
+/* ---------- سایمون ---------- */
+.simon-grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:14px;
+  max-width:360px;
+  margin:0 auto;
+}
+
+.simon-btn{
+  aspect-ratio:1;
+  border-radius:24px;
+  border:3px solid transparent;
+  cursor:pointer;
+  transition:.15s;
+  opacity:.55;
+}
+
+.simon-btn.green{background:#22c55e}
+.simon-btn.red{background:#ef4444}
+.simon-btn.yellow{background:#eab308}
+.simon-btn.blue{background:#3b82f6}
+
+.simon-btn.active{
+  opacity:1;
+  transform:scale(1.05);
+  box-shadow:0 0 40px currentColor;
+  border-color:#fff;
+}
+
+.simon-btn.green.active{color:#22c55e}
+.simon-btn.red.active{color:#ef4444}
+.simon-btn.yellow.active{color:#eab308}
+.simon-btn.blue.active{color:#3b82f6}
+
+@media(max-width:520px){
+  .hub-tools{flex-direction:column;align-items:stretch}
+  .filter-btns{overflow-x:auto;padding-bottom:4px}
+  .mine-cell{width:26px;height:26px;font-size:12px}
+  .sound-toggle{bottom:16px;left:16px;width:44px;height:44px}
+}
+/* =========================================================
+   GameLand v2 — آپدیت عظیم
+   ========================================================= */
+
+/* ---------- Preloader ---------- */
+.preloader{
+  position:fixed;
+  inset:0;
+  background:var(--bg);
+  z-index:99999;
+  display:grid;
+  place-items:center;
+  transition:opacity .5s, visibility .5s;
+}
+
+.preloader.hidden{
+  opacity:0;
+  visibility:hidden;
+  pointer-events:none;
+}
+
+.preloader-content{text-align:center}
+
+.preloader-icon{
+  font-size:64px;
+  margin-bottom:20px;
+  animation:preloaderBounce 1.2s ease-in-out infinite;
+}
+
+@keyframes preloaderBounce{
+  0%,100%{transform:translateY(0)}
+  50%{transform:translateY(-20px)}
+}
+
+.preloader-text{
+  font-size:20px;
+  font-weight:900;
+  margin-bottom:20px;
+  background:linear-gradient(120deg,var(--a1),var(--a2));
+  -webkit-background-clip:text;
+  background-clip:text;
+  color:transparent;
+}
+
+.preloader-bar{
+  width:200px;
+  height:4px;
+  background:rgba(255,255,255,.08);
+  border-radius:100px;
+  overflow:hidden;
+  margin:0 auto;
+}
+
+.preloader-fill{
+  height:100%;
+  background:linear-gradient(90deg,var(--a1),var(--a2));
+  width:0;
+  animation:preloaderFill 1.5s ease forwards;
+}
+
+@keyframes preloaderFill{
+  to{width:100%}
+}
+
+/* ---------- Header Actions ---------- */
+.header-actions{
+  display:flex;
+  gap:8px;
+  align-items:center;
+}
+
+.theme-btn,
+.fav-btn-header{
+  width:42px;
+  height:42px;
+  border-radius:12px;
+  background:var(--panel);
+  border:1px solid var(--line);
+  color:var(--text);
+  font-size:18px;
+  cursor:pointer;
+  display:grid;
+  place-items:center;
+  transition:.2s;
+  position:relative;
+  font-family:inherit;
+}
+
+.theme-btn:hover,
+.fav-btn-header:hover{
+  background:rgba(255,255,255,.1);
+  transform:scale(1.05);
+}
+
+.fav-btn-header .fav-count{
+  position:absolute;
+  top:-4px;
+  left:-4px;
+  background:linear-gradient(135deg,var(--a1),var(--a3));
+  color:#fff;
+  font-size:10px;
+  font-weight:800;
+  min-width:18px;
+  height:18px;
+  line-height:18px;
+  text-align:center;
+  border-radius:100px;
+  padding:0 4px;
+  border:2px solid var(--bg);
+  display:none;
+}
+
+.fav-btn-header .fav-count.show{display:block}
+
+/* ---------- Hero Badge ---------- */
+.hero-badge{
+  display:inline-flex;
+  align-items:center;
+  gap:8px;
+  padding:8px 18px;
+  border-radius:100px;
+  background:rgba(124,92,255,.1);
+  border:1px solid rgba(124,92,255,.25);
+  font-size:13px;
+  font-weight:600;
+  color:#c4a0ff;
+  margin-bottom:20px;
+}
+
+[data-theme="light"] .hero-badge{color:#7c3aed}
+
+.hero-badge .dot{
+  width:8px;
+  height:8px;
+  border-radius:50%;
+  background:var(--a2);
+  box-shadow:0 0 12px var(--a2);
+  animation:pulseDot 2s infinite;
+}
+
+@keyframes pulseDot{
+  0%,100%{opacity:1;transform:scale(1)}
+  50%{opacity:.4;transform:scale(.7)}
+}
+
+/* ---------- Hub Stats ---------- */
+.hub-stats{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:12px;
+  margin-bottom:28px;
+}
+
+@media(max-width:640px){
+  .hub-stats{grid-template-columns:repeat(2,1fr)}
+}
+
+.stat-item{
+  background:var(--panel);
+  border:1px solid var(--line);
+  padding:16px 12px;
+  border-radius:var(--radius-sm);
+  text-align:center;
+  transition:.3s;
+  position:relative;
+  overflow:hidden;
+}
+
+.stat-item::before{
+  content:'';
+  position:absolute;
+  top:0;left:0;right:0;
+  height:3px;
+  background:linear-gradient(90deg,var(--a1),var(--a2),var(--a3));
+  background-size:300% 100%;
+  animation:gradientMove 3s linear infinite;
+}
+
+@keyframes gradientMove{
+  0%{background-position:0% 50%}
+  100%{background-position:300% 50%}
+}
+
+.stat-item:hover{
+  transform:translateY(-4px);
+  border-color:rgba(124,92,255,.3);
+  box-shadow:0 8px 24px rgba(124,92,255,.15);
+}
+
+.stat-item b{
+  display:block;
+  font-size:clamp(20px,3vw,28px);
+  font-weight:900;
+  line-height:1;
+  margin-bottom:6px;
+  background:linear-gradient(135deg,var(--a1),var(--a2));
+  -webkit-background-clip:text;
+  background-clip:text;
+  color:transparent;
+}
+
+.stat-item span{
+  font-size:11px;
+  color:var(--muted);
+  font-weight:600;
+}
+
+/* ---------- Empty Msg ---------- */
+.empty-msg{
+  text-align:center;
+  color:var(--muted);
+  font-size:15px;
+  padding:60px 20px;
+}
+
+.empty-msg.hidden{display:none}
+
+/* ---------- Game Top با Fav ---------- */
+.game-top{
+  display:flex;
+  align-items:center;
+  gap:12px;
+  padding:8px 0 22px;
+  flex-wrap:wrap;
+}
+
+.game-top h2{
+  flex:1;
+  font-size:18px;
+  font-weight:800;
+  min-width:0;
+  overflow:hidden;
+  text-overflow:ellipsis;
+  white-space:nowrap;
+}
+
+.fav-btn-game{
+  width:42px;
+  height:42px;
+  border-radius:12px;
+  background:var(--panel);
+  border:1px solid var(--line);
+  color:var(--text);
+  font-size:20px;
+  cursor:pointer;
+  display:grid;
+  place-items:center;
+  transition:.25s;
+  flex-shrink:0;
+}
+
+.fav-btn-game:hover{
+  transform:scale(1.1);
+  background:rgba(255,255,255,.1);
+}
+
+.fav-btn-game.active{
+  background:linear-gradient(135deg,#eab308,#f59e0b);
+  border-color:transparent;
+  color:#fff;
+  box-shadow:0 4px 16px rgba(234,179,8,.4);
+}
+
+/* ---------- کارت با حالت Fav ---------- */
+.card .fav-star{
+  position:absolute;
+  top:12px;
+  left:12px;
+  width:32px;
+  height:32px;
+  border-radius:50%;
+  background:rgba(0,0,0,.5);
+  backdrop-filter:blur(10px);
+  border:1px solid rgba(255,255,255,.1);
+  display:grid;
+  place-items:center;
+  font-size:14px;
+  cursor:pointer;
+  transition:.2s;
+  opacity:0;
+  z-index:5;
+}
+
+.card:hover .fav-star{opacity:1}
+
+.card .fav-star.active{
+  background:linear-gradient(135deg,#eab308,#f59e0b);
+  border-color:transparent;
+  opacity:1;
+  box-shadow:0 0 16px rgba(234,179,8,.5);
+}
+
+.card .fav-star:hover{transform:scale(1.15)}
+
+/* ---------- تم روشن ---------- */
+[data-theme="light"]{
+  --bg:#f8f8fc;
+  --text:#16162a;
+  --muted:#5a5a78;
+  --line:rgba(0,0,0,.08);
+  --panel:rgba(0,0,0,.03);
+}
+
+[data-theme="light"] body::before{
+  background:
+    radial-gradient(650px 420px at 12% -5%, rgba(124,92,255,.12), transparent 62%),
+    radial-gradient(650px 420px at 88% 5%, rgba(0,229,255,.08), transparent 62%),
+    radial-gradient(900px 620px at 50% 110%, rgba(255,59,123,.06), transparent 62%);
+}
+
+[data-theme="light"] .preloader{background:#f8f8fc}
+[data-theme="light"] .sound-toggle{background:rgba(255,255,255,.9)}
+
+/* ---------- تم آمبر ---------- */
+[data-theme="amber"]{
+  --bg:#1a0f00;
+  --text:#fff8ee;
+  --muted:#c4a882;
+  --line:rgba(255,200,100,.1);
+  --panel:rgba(255,200,100,.04);
+  --a1:#f59e0b;
+  --a2:#f97316;
+  --a3:#eab308;
+}
+
+[data-theme="amber"] body::before{
+  background:
+    radial-gradient(650px 420px at 12% -5%, rgba(245,158,11,.15), transparent 62%),
+    radial-gradient(650px 420px at 88% 5%, rgba(249,115,22,.1), transparent 62%),
+    radial-gradient(900px 620px at 50% 110%, rgba(234,179,8,.08), transparent 62%);
+}
+
+/* ---------- موبایل ---------- */
+@media(max-width:520px){
+  .header-actions{gap:6px}
+  .theme-btn,
+  .fav-btn-header{width:38px;height:38px;font-size:16px}
+  .hub-stats{gap:8px}
+  .stat-item{padding:12px 8px}
+}
+/* =========================================================
+   GameLand v3 — استایل‌های جدید
+   ========================================================= */
+
+/* ---------- Toast ---------- */
+.toast-container{
+  position:fixed;
+  top:20px;
+  left:50%;
+  transform:translateX(-50%);
+  z-index:100000;
+  display:flex;
+  flex-direction:column;
+  gap:10px;
+  pointer-events:none;
+  max-width:90vw;
+}
+
+.toast{
+  padding:12px 20px;
+  border-radius:14px;
+  background:rgba(20,20,32,.95);
+  backdrop-filter:blur(14px);
+  -webkit-backdrop-filter:blur(14px);
+  border:1px solid rgba(255,255,255,.12);
+  color:var(--text);
+  font-size:13px;
+  font-weight:600;
+  box-shadow:0 12px 40px rgba(0,0,0,.45);
+  opacity:0;
+  transform:translateY(-20px);
+  transition:opacity .3s, transform .3s;
+  pointer-events:auto;
+  max-width:380px;
+  line-height:1.7;
+}
+
+.toast.show{opacity:1;transform:translateY(0)}
+
+.toast-info    {border-color:rgba(0,229,255,.35);box-shadow:0 12px 40px rgba(0,229,255,.15)}
+.toast-success {border-color:rgba(34,197,94,.4);box-shadow:0 12px 40px rgba(34,197,94,.2)}
+.toast-warn    {border-color:rgba(234,179,8,.4);box-shadow:0 12px 40px rgba(234,179,8,.2)}
+.toast-error   {border-color:rgba(239,68,68,.4);box-shadow:0 12px 40px rgba(239,68,68,.2)}
+
+/* ---------- Confetti ---------- */
+.confetti-canvas{
+  position:fixed;
+  inset:0;
+  pointer-events:none;
+  z-index:99999;
+  opacity:0;
+  transition:opacity .3s;
+}
+.confetti-canvas.active{opacity:1}
+
+/* ---------- Modal ---------- */
+.modal-backdrop{
+  position:fixed;
+  inset:0;
+  background:rgba(0,0,0,.72);
+  backdrop-filter:blur(8px);
+  -webkit-backdrop-filter:blur(8px);
+  z-index:99998;
+  display:grid;
+  place-items:center;
+  padding:20px;
+  opacity:0;
+  transition:opacity .3s;
+}
+.modal-backdrop.show{opacity:1}
+
+.modal-box{
+  background:linear-gradient(160deg,rgba(24,24,40,.98),rgba(14,14,26,.98));
+  border:1px solid rgba(255,255,255,.12);
+  border-radius:22px;
+  padding:26px 24px 22px;
+  max-width:460px;
+  width:100%;
+  box-shadow:0 30px 80px rgba(0,0,0,.6);
+  transform:scale(.94) translateY(10px);
+  transition:transform .3s cubic-bezier(.2,.9,.3,1.2);
+  max-height:90vh;
+  overflow-y:auto;
+}
+.modal-backdrop.show .modal-box{transform:scale(1) translateY(0)}
+
+.modal-title{
+  font-size:20px;
+  font-weight:800;
+  margin-bottom:14px;
+  text-align:center;
+}
+
+.modal-body{
+  color:var(--muted);
+  font-size:14px;
+  line-height:2;
+  margin-bottom:20px;
+  text-align:center;
+}
+
+.modal-actions{
+  display:flex;
+  gap:10px;
+  justify-content:center;
+  flex-wrap:wrap;
+}
+
+/* ---------- Leaderboard ---------- */
+.lb-list{
+  display:flex;
+  flex-direction:column;
+  gap:8px;
+  text-align:right;
+  direction:rtl;
+}
+
+.lb-row{
+  display:grid;
+  grid-template-columns:34px 1fr auto;
+  gap:10px;
+  align-items:center;
+  padding:10px 14px;
+  border-radius:12px;
+  background:rgba(255,255,255,.04);
+  border:1px solid rgba(255,255,255,.06);
+  font-size:13px;
+}
+
+.lb-row.rank-1{background:linear-gradient(90deg,rgba(234,179,8,.18),transparent);border-color:rgba(234,179,8,.4)}
+.lb-row.rank-2{background:linear-gradient(90deg,rgba(148,163,184,.15),transparent);border-color:rgba(148,163,184,.35)}
+.lb-row.rank-3{background:linear-gradient(90deg,rgba(180,83,9,.15),transparent);border-color:rgba(180,83,9,.35)}
+
+.lb-rank{
+  font-weight:900;
+  font-size:15px;
+  color:var(--muted);
+  text-align:center;
+}
+
+.lb-row.rank-1 .lb-rank{color:#eab308}
+.lb-row.rank-2 .lb-rank{color:#cbd5e1}
+.lb-row.rank-3 .lb-rank{color:#f59e0b}
+
+.lb-score{
+  font-weight:800;
+  color:var(--a2);
+}
+
+.lb-date{
+  font-size:10px;
+  color:var(--muted);
+  opacity:.7;
+  grid-column:2 / -1;
+}
+
+/* ---------- Achievements ---------- */
+.ach-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fill,minmax(160px,1fr));
+  gap:12px;
+}
+
+.ach-card{
+  padding:16px 12px;
+  border-radius:16px;
+  background:var(--panel);
+  border:1px solid var(--line);
+  text-align:center;
+  transition:.25s;
+  position:relative;
+}
+
+.ach-card.locked{
+  opacity:.4;
+  filter:grayscale(1);
+}
+
+.ach-card.unlocked{
+  background:linear-gradient(160deg,rgba(124,92,255,.15),rgba(0,229,255,.06));
+  border-color:rgba(124,92,255,.35);
+  box-shadow:0 6px 24px rgba(124,92,255,.2);
+}
+
+.ach-card.unlocked:hover{
+  transform:translateY(-4px);
+  box-shadow:0 12px 32px rgba(124,92,255,.35);
+}
+
+.ach-icon{
+  font-size:36px;
+  display:block;
+  margin-bottom:8px;
+  line-height:1;
+}
+
+.ach-name{
+  font-size:13px;
+  font-weight:800;
+  margin-bottom:4px;
+}
+
+.ach-desc{
+  font-size:11px;
+  color:var(--muted);
+  line-height:1.7;
+}
+
+.ach-card.unlocked .ach-icon{
+  animation:achPop .5s ease;
+}
+
+@keyframes achPop{
+  0%{transform:scale(.5) rotate(-20deg)}
+  60%{transform:scale(1.15) rotate(8deg)}
+  100%{transform:scale(1) rotate(0)}
+}
+
+/* ---------- Daily Challenge Banner ---------- */
+.daily-banner{
+  display:flex;
+  align-items:center;
+  gap:14px;
+  padding:16px 20px;
+  border-radius:18px;
+  background:linear-gradient(120deg,rgba(124,92,255,.18),rgba(0,229,255,.1));
+  border:1px solid rgba(124,92,255,.35);
+  margin-bottom:22px;
+  position:relative;
+  overflow:hidden;
+  cursor:pointer;
+  transition:.3s;
+}
+
+.daily-banner:hover{transform:translateY(-2px);box-shadow:0 12px 32px rgba(124,92,255,.25)}
+
+.daily-banner::before{
+  content:'';
+  position:absolute;
+  inset:0;
+  background:linear-gradient(90deg,transparent,rgba(255,255,255,.06),transparent);
+  transform:translateX(-100%);
+  animation:dailyShine 3s infinite;
+}
+
+@keyframes dailyShine{
+  100%{transform:translateX(100%)}
+}
+
+.daily-banner .db-icon{
+  font-size:32px;
+  flex-shrink:0;
+  animation:dailyIcon 2.5s ease-in-out infinite;
+}
+
+@keyframes dailyIcon{
+  0%,100%{transform:rotate(-6deg) scale(1)}
+  50%{transform:rotate(6deg) scale(1.08)}
+}
+
+.daily-banner .db-info{flex:1;min-width:0}
+
+.daily-banner .db-title{
+  font-size:14px;
+  font-weight:800;
+  margin-bottom:2px;
+}
+
+.daily-banner .db-sub{
+  font-size:12px;
+  color:var(--muted);
+}
+
+.daily-banner .db-badge{
+  background:linear-gradient(135deg,#eab308,#f59e0b);
+  color:#1a0f00;
+  font-size:10px;
+  font-weight:800;
+  padding:4px 10px;
+  border-radius:100px;
+  flex-shrink:0;
+}
+
+.daily-banner.done{
+  background:linear-gradient(120deg,rgba(34,197,94,.15),rgba(22,163,74,.08));
+  border-color:rgba(34,197,94,.4);
+  cursor:default;
+}
+
+.daily-banner.done .db-badge{
+  background:linear-gradient(135deg,#22c55e,#16a34a);
+  color:#fff;
+}
+
+/* ---------- Nav Tabs (تب‌های بالا) ---------- */
+.nav-tabs{
+  display:flex;
+  gap:6px;
+  margin-bottom:20px;
+  background:var(--panel);
+  padding:6px;
+  border-radius:14px;
+  border:1px solid var(--line);
+  overflow-x:auto;
+}
+
+.nav-tabs button{
+  flex:1;
+  min-width:90px;
+  padding:10px 14px;
+  border-radius:10px;
+  background:transparent;
+  border:none;
+  color:var(--muted);
+  font-family:inherit;
+  font-size:13px;
+  font-weight:700;
+  cursor:pointer;
+  transition:.2s;
+  white-space:nowrap;
+}
+
+.nav-tabs button:hover{color:var(--text)}
+
+.nav-tabs button.active{
+  background:linear-gradient(135deg,var(--a1),var(--a2));
+  color:#08080f;
+  box-shadow:0 4px 14px rgba(124,92,255,.3);
+}
+
+/* ---------- تم Neon (تم ۴) ---------- */
+[data-theme="neon"]{
+  --bg:#0a0014;
+  --text:#f0e6ff;
+  --muted:#a78bfa;
+  --line:rgba(167,139,250,.18);
+  --panel:rgba(167,139,250,.05);
+  --a1:#ff00e5;
+  --a2:#00fff0;
+  --a3:#a855f7;
+}
+
+[data-theme="neon"] body::before{
+  background:
+    radial-gradient(650px 420px at 12% -5%, rgba(255,0,229,.2), transparent 62%),
+    radial-gradient(650px 420px at 88% 5%, rgba(0,255,240,.15), transparent 62%),
+    radial-gradient(900px 620px at 50% 110%, rgba(168,85,247,.15), transparent 62%);
+}
+
+[data-theme="neon"] .logo-mark{
+  box-shadow:0 0 36px rgba(255,0,229,.7), 0 0 72px rgba(0,255,240,.4);
+}
+
+[data-theme="neon"] .btn.primary{
+  box-shadow:0 0 30px rgba(255,0,229,.5);
+}
+
+/* ---------- Game Card v3 (با آمار بیشتر) ---------- */
+.card .card-stats{
+  display:flex;
+  gap:10px;
+  margin-top:10px;
+  font-size:10px;
+  color:var(--muted);
+}
+
+.card .card-stats span{
+  display:flex;
+  align-items:center;
+  gap:3px;
+}
+
+.card .card-badge{
+  position:absolute;
+  top:12px;
+  right:12px;
+  font-size:9px;
+  font-weight:800;
+  padding:3px 8px;
+  border-radius:100px;
+  background:linear-gradient(135deg,#eab308,#f59e0b);
+  color:#1a0f00;
+  z-index:4;
+}
+
+.card .card-badge.new{
+  background:linear-gradient(135deg,#22c55e,#16a34a);
+  color:#fff;
+}
+
+/* ---------- Responsive ---------- */
+@media(max-width:520px){
+  .toast-container{top:12px;padding:0 12px}
+  .toast{font-size:12px;padding:10px 14px}
+  .modal-box{padding:20px 18px}
+  .ach-grid{grid-template-columns:repeat(2,1fr)}
+  .daily-banner{padding:14px 16px;gap:10px}
+  .daily-banner .db-icon{font-size:26px}
+  .daily-banner .db-title{font-size:13px}
+}
+/* =========================================================
+   GameLand v3 — Bottom Nav + Views جدید
+   ========================================================= */
+
+/* ---------- Bottom Navigation ---------- */
+.bottom-nav{
+  position:fixed;
+  bottom:14px;
+  left:50%;
+  transform:translateX(-50%);
+  background:rgba(20,20,32,.92);
+  backdrop-filter:blur(20px);
+  -webkit-backdrop-filter:blur(20px);
+  border:1px solid rgba(255,255,255,.1);
+  border-radius:20px;
+  padding:6px;
+  display:flex;
+  gap:4px;
+  z-index:100;
+  box-shadow:0 12px 40px rgba(0,0,0,.5);
+}
+
+.bottom-nav button{
+  background:transparent;
+  border:none;
+  color:var(--muted);
+  font-family:inherit;
+  font-size:18px;
+  padding:8px 14px;
+  border-radius:14px;
+  cursor:pointer;
+  transition:.2s;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  gap:2px;
+  min-width:56px;
+}
+
+.bottom-nav button span{
+  font-size:9px;
+  font-weight:700;
+}
+
+.bottom-nav button:hover{
+  background:rgba(255,255,255,.05);
+  color:var(--text);
+}
+
+.bottom-nav button.active{
+  background:linear-gradient(135deg,var(--a1),var(--a2));
+  color:#08080f;
+  box-shadow:0 4px 14px rgba(124,92,255,.4);
+}
+
+/* فاصله بیشتر پایین برای wrap تا با bottom-nav تداخل نکنه */
+.wrap{
+  padding-bottom:110px !important;
+}
+
+/* ---------- Leaderboard Section در صفحه بازی ---------- */
+.lb-section{
+  margin-top:24px;
+  padding:18px;
+  background:var(--panel);
+  border:1px solid var(--line);
+  border-radius:18px;
+}
+
+.lb-heading{
+  font-size:14px;
+  font-weight:800;
+  margin-bottom:12px;
+  text-align:center;
+  color:var(--text);
+}
+
+/* ---------- Stats View Cards ---------- */
+.stats-card{
+  background:var(--panel);
+  border:1px solid var(--line);
+  border-radius:16px;
+  padding:16px 20px;
+  margin-top:14px;
+}
+
+.stats-card-head{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  font-size:14px;
+  font-weight:700;
+  margin-bottom:12px;
+}
+
+.stats-card-head b{
+  font-size:18px;
+  background:linear-gradient(135deg,var(--a1),var(--a2));
+  -webkit-background-clip:text;
+  background-clip:text;
+  color:transparent;
+}
+
+.progress-bar{
+  height:10px;
+  border-radius:100px;
+  background:rgba(255,255,255,.06);
+  overflow:hidden;
+}
+
+.progress-fill{
+  height:100%;
+  background:linear-gradient(90deg,var(--a1),var(--a2),var(--a3));
+  background-size:200% 100%;
+  border-radius:100px;
+  transition:width .6s cubic-bezier(.2,.9,.3,1);
+  animation:progressFlow 3s linear infinite;
+}
+
+@keyframes progressFlow{
+  0%{background-position:0% 50%}
+  100%{background-position:200% 50%}
+}
+
+.fav-list{
+  display:flex;
+  flex-direction:column;
+  gap:6px;
+}
+
+/* ---------- تم روشن - fixes ---------- */
+[data-theme="light"] .bottom-nav{
+  background:rgba(255,255,255,.92);
+  border-color:rgba(0,0,0,.08);
+  box-shadow:0 12px 40px rgba(0,0,0,.12);
+}
+
+[data-theme="light"] .bottom-nav button.active{
+  color:#fff;
+}
+
+/* ---------- تم آمبر ---------- */
+[data-theme="amber"] .bottom-nav{
+  background:rgba(40,20,0,.92);
+}
+
+/* ---------- تم نئون ---------- */
+[data-theme="neon"] .bottom-nav{
+  background:rgba(20,0,32,.92);
+  border-color:rgba(255,0,229,.25);
+  box-shadow:0 12px 40px rgba(255,0,229,.2);
+}
+
+[data-theme="neon"] .bottom-nav button.active{
+  box-shadow:0 0 24px rgba(255,0,229,.7);
+}
+
+/* ---------- Responsive ---------- */
+@media(max-width:520px){
+  .bottom-nav{
+    bottom:10px;
+    padding:5px;
+    gap:2px;
+  }
+  .bottom-nav button{
+    min-width:50px;
+    padding:7px 10px;
+    font-size:16px;
+  }
+  .bottom-nav button span{font-size:8px}
+}
+/* =========================================================
+   GameLand v3 — استایل بازی‌های جدید
+   ========================================================= */
+
+/* ---------- Sequence ---------- */
+.seq-grid{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:12px;
+  max-width:400px;
+  margin:0 auto;
+}
+
+.seq-btn{
+  aspect-ratio:1;
+  border-radius:22px;
+  border:3px solid transparent;
+  cursor:pointer;
+  transition:.15s;
+  opacity:.55;
+  padding:0;
+}
+
+.seq-btn:hover{opacity:.8}
+.seq-btn:active{transform:scale(.95)}
+
+.seq-btn.active{
+  opacity:1;
+  transform:scale(1.05);
+  border-color:#fff;
+}
+
+.seq-btn.shake{
+  animation:seqShake .4s;
+}
+
+@keyframes seqShake{
+  0%,100%{transform:translateX(0)}
+  25%{transform:translateX(-8px)}
+  75%{transform:translateX(8px)}
+}
+
+/* ---------- Hangman ---------- */
+.hm-wrap{
+  display:flex;
+  gap:16px;
+  align-items:center;
+  flex-wrap:wrap;
+  justify-content:center;
+}
+
+.hm-wrap canvas{
+  background:#0b0b18;
+  border-radius:16px;
+  border:1px solid var(--line);
+  width:200px;
+  height:200px;
+  flex-shrink:0;
+}
+
+.hm-info{
+  flex:1;
+  min-width:240px;
+}
+
+.hm-hint{
+  font-size:12px;
+  color:var(--muted);
+  margin-bottom:14px;
+  padding:8px 12px;
+  background:var(--panel);
+  border-radius:10px;
+  text-align:center;
+}
+
+.hm-word{
+  display:flex;
+  gap:6px;
+  justify-content:center;
+  flex-wrap:wrap;
+  margin-bottom:18px;
+  direction:rtl;
+}
+
+.hm-blank,
+.hm-shown{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  min-width:28px;
+  height:38px;
+  font-size:20px;
+  font-weight:800;
+  border-bottom:2px solid var(--line);
+  padding:0 4px;
+}
+
+.hm-shown{
+  color:var(--a2);
+  text-shadow:0 0 12px rgba(0,229,255,.5);
+}
+
+.hm-letters{
+  display:flex;
+  flex-wrap:wrap;
+  gap:6px;
+  justify-content:center;
+  max-width:420px;
+  margin:0 auto;
+}
+
+.hm-letter{
+  width:34px;
+  height:34px;
+  border-radius:10px;
+  background:var(--panel);
+  border:1px solid var(--line);
+  color:var(--text);
+  font-family:inherit;
+  font-size:15px;
+  font-weight:700;
+  cursor:pointer;
+  transition:.15s;
+  display:grid;
+  place-items:center;
+  padding:0;
+}
+
+.hm-letter:hover:not(:disabled){
+  background:rgba(124,92,255,.2);
+  border-color:rgba(124,92,255,.4);
+}
+
+.hm-letter.correct{
+  background:linear-gradient(135deg,rgba(34,197,94,.3),rgba(22,163,74,.2));
+  border-color:rgba(34,197,94,.6);
+  color:#86efac;
+}
+
+.hm-letter.wrong{
+  background:rgba(239,68,68,.15);
+  border-color:rgba(239,68,68,.4);
+  color:#fca5a5;
+  opacity:.5;
+}
+
+.hm-letter:disabled{cursor:default}
+
+/* ---------- Responsive ---------- */
+@media(max-width:520px){
+  .seq-grid{gap:8px;max-width:280px}
+  .hm-wrap{flex-direction:column}
+  .hm-wrap canvas{width:160px;height:160px}
+  .hm-letter{width:30px;height:30px;font-size:13px}
+  .hm-blank,.hm-shown{min-width:22px;height:32px;font-size:17px}
+}

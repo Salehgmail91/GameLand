@@ -1,0 +1,556 @@
+/* =========================================================
+   GameLand v5 — animations.css
+   انیمیشن‌های پیشرفته
+   ========================================================= */
+
+/* =========================================================
+   1. Fade
+   ========================================================= */
+@keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+@keyframes fadeOut { from { opacity: 1; } to { opacity: 0; } }
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(16px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+@keyframes fadeInDown {
+  from { opacity: 0; transform: translateY(-16px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+@keyframes fadeInLeft {
+  from { opacity: 0; transform: translateX(-16px); }
+  to   { opacity: 1; transform: translateX(0); }
+}
+@keyframes fadeInRight {
+  from { opacity: 0; transform: translateX(16px); }
+  to   { opacity: 1; transform: translateX(0); }
+}
+
+/* =========================================================
+   2. Scale & Pop
+   ========================================================= */
+@keyframes scaleIn {
+  from { opacity: 0; transform: scale(0.9); }
+  to   { opacity: 1; transform: scale(1); }
+}
+@keyframes pop {
+  0%   { transform: scale(0.6); opacity: 0; }
+  60%  { transform: scale(1.1); opacity: 1; }
+  100% { transform: scale(1); }
+}
+@keyframes pulse {
+  0%, 100% { transform: scale(1); }
+  50%      { transform: scale(1.06); }
+}
+@keyframes heartbeat {
+  0%, 100% { transform: scale(1); }
+  10%, 30% { transform: scale(1.1); }
+  20%, 40% { transform: scale(0.95); }
+}
+
+/* =========================================================
+   3. Rotate
+   ========================================================= */
+@keyframes spin { to { transform: rotate(360deg); } }
+@keyframes wobble {
+  0%, 100% { transform: rotate(-6deg) scale(1); }
+  50%      { transform: rotate(6deg) scale(1.08); }
+}
+@keyframes tilt {
+  0%, 100% { transform: rotate(0deg); }
+  25%      { transform: rotate(-3deg); }
+  75%      { transform: rotate(3deg); }
+}
+
+/* =========================================================
+   4. Bounce
+   ========================================================= */
+@keyframes bounce {
+  0%, 100% { transform: translateY(0); }
+  50%      { transform: translateY(-12px); }
+}
+@keyframes bounceSoft {
+  0%, 100% { transform: translateY(0); }
+  50%      { transform: translateY(-6px); }
+}
+@keyframes bounceIn {
+  0%   { transform: scale(0.3); opacity: 0; }
+  50%  { transform: scale(1.05); opacity: 1; }
+  70%  { transform: scale(0.95); }
+  100% { transform: scale(1); }
+}
+
+/* =========================================================
+   5. Shake
+   ========================================================= */
+@keyframes shake {
+  0%, 100% { transform: translateX(0); }
+  20%      { transform: translateX(-8px); }
+  40%      { transform: translateX(8px); }
+  60%      { transform: translateX(-5px); }
+  80%      { transform: translateX(5px); }
+}
+
+/* =========================================================
+   6. Slide
+   ========================================================= */
+@keyframes slideInUp {
+  from { transform: translateY(100%); }
+  to   { transform: translateY(0); }
+}
+@keyframes slideOutDown {
+  from { transform: translateY(0); }
+  to   { transform: translateY(100%); }
+}
+
+/* =========================================================
+   7. Glow Pulse
+   ========================================================= */
+@keyframes glowPulse {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(234, 179, 8, 0.3); }
+  50%      { box-shadow: 0 0 24px 4px rgba(234, 179, 8, 0.15); }
+}
+@keyframes glowPulsePurple {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(124, 92, 255, 0.4); }
+  50%      { box-shadow: 0 0 30px 6px rgba(124, 92, 255, 0.2); }
+}
+
+/* =========================================================
+   8. Gradient Movement
+   ========================================================= */
+@keyframes gradientShift {
+  0%   { background-position: 0% 50%; }
+  100% { background-position: 200% 50%; }
+}
+@keyframes hueShift {
+  0%   { filter: hue-rotate(0deg); }
+  100% { filter: hue-rotate(360deg); }
+}
+
+/* =========================================================
+   9. Shine
+   ========================================================= */
+@keyframes shine {
+  0%   { transform: translateX(-100%); }
+  100% { transform: translateX(100%); }
+}
+@keyframes shimmer {
+  0%   { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+
+/* =========================================================
+   10. 🆕 Advanced Effects (v5)
+   ========================================================= */
+
+/* 🆕 Card 3D Tilt */
+@keyframes cardTilt {
+  0%, 100% { transform: perspective(800px) rotateY(0deg) rotateX(0deg); }
+  25%      { transform: perspective(800px) rotateY(-3deg) rotateX(2deg); }
+  75%      { transform: perspective(800px) rotateY(3deg) rotateX(-2deg); }
+}
+
+/* 🆕 Ripple */
+@keyframes ripple {
+  to {
+    transform: scale(4);
+    opacity: 0;
+  }
+}
+
+/* 🆕 Float */
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50%      { transform: translateY(-10px); }
+}
+@keyframes floatSlow {
+  0%, 100% { transform: translate(0, 0); }
+  50%      { transform: translate(10px, -20px); }
+}
+
+/* 🆕 Particle rise */
+@keyframes riseUp {
+  0%   { transform: translateY(100%) scale(0); opacity: 0; }
+  20%  { opacity: 1; }
+  100% { transform: translateY(-20vh) scale(1); opacity: 0; }
+}
+
+/* 🆕 Count-up Ready */
+@keyframes countUp {
+  0%   { transform: translateY(100%); opacity: 0; }
+  100% { transform: translateY(0); opacity: 1; }
+}
+
+/* 🆕 Magnetic Hover */
+@keyframes magnetic {
+  0%, 100% { transform: translate(0, 0); }
+  50%      { transform: translate(var(--mx, 0), var(--my, 0)); }
+}
+
+/* 🆕 Neon flicker */
+@keyframes neonFlicker {
+  0%, 18%, 22%, 25%, 53%, 57%, 100% {
+    text-shadow:
+      0 0 4px #fff,
+      0 0 11px #fff,
+      0 0 19px #fff,
+      0 0 40px var(--a1),
+      0 0 80px var(--a1),
+      0 0 90px var(--a1);
+  }
+  20%, 24%, 55% { text-shadow: none; }
+}
+
+/* 🆕 Star twinkle */
+@keyframes starTwinkle {
+  0%, 100% { opacity: 1; transform: scale(1) rotate(0); }
+  50%      { opacity: 0.4; transform: scale(0.7) rotate(180deg); }
+}
+
+/* 🆕 Trophy rise */
+@keyframes trophyRise {
+  0%   { transform: translateY(20px) scale(0.5) rotate(-20deg); opacity: 0; }
+  60%  { transform: translateY(-10px) scale(1.15) rotate(8deg); opacity: 1; }
+  100% { transform: translateY(0) scale(1) rotate(0); opacity: 1; }
+}
+
+/* 🆕 Coin flip */
+@keyframes coinFlip {
+  0%   { transform: rotateY(0); }
+  50%  { transform: rotateY(180deg); }
+  100% { transform: rotateY(360deg); }
+}
+
+/* 🆕 Slide+fade page transition */
+@keyframes pageEnter {
+  from {
+    opacity: 0;
+    transform: translateY(20px) scale(0.98);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+@keyframes pageExit {
+  from {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+  to {
+    opacity: 0;
+    transform: translateY(-20px) scale(0.98);
+  }
+}
+
+/* 🆕 Ring progress */
+@keyframes ringProgress {
+  from { stroke-dashoffset: 300; }
+  to   { stroke-dashoffset: var(--ring-offset, 0); }
+}
+
+/* 🆕 Shake image */
+@keyframes imgShake {
+  0%, 100% { transform: translate(0, 0) rotate(0); }
+  25%      { transform: translate(-2px, -2px) rotate(-2deg); }
+  75%      { transform: translate(2px, 2px) rotate(2deg); }
+}
+
+/* 🆕 Card entry stagger */
+@keyframes cardEntry {
+  from {
+    opacity: 0;
+    transform: translateY(30px) scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+/* 🆕 Coin burst */
+@keyframes coinBurst {
+  0%   { transform: translate(0, 0) scale(0.5); opacity: 1; }
+  100% { transform: translate(var(--bx, 0), var(--by, -100px)) scale(1); opacity: 0; }
+}
+
+/* 🆕 Number roll */
+@keyframes numberRoll {
+  0%   { transform: translateY(-100%); }
+  100% { transform: translateY(0); }
+}
+
+/* 🆕 Slider entrance */
+@keyframes slideUpFade {
+  0%   { opacity: 0; transform: translateY(30px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+
+/* 🆕 Confetti fall (enhanced) */
+@keyframes confettiFall {
+  0% {
+    transform: translateY(-10vh) rotate(0) scale(1);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(110vh) rotate(720deg) scale(0.7);
+    opacity: 0;
+  }
+}
+
+/* 🆕 Shine sweep for cards */
+@keyframes cardShine {
+  0% {
+    transform: translateX(-100%) skewX(-20deg);
+    opacity: 0;
+  }
+  50% { opacity: 0.6; }
+  100% {
+    transform: translateX(200%) skewX(-20deg);
+    opacity: 0;
+  }
+}
+
+/* 🆕 Text glow pulse */
+@keyframes textGlow {
+  0%, 100% {
+    text-shadow: 0 0 8px currentColor, 0 0 16px currentColor;
+  }
+  50% {
+    text-shadow: 0 0 16px currentColor, 0 0 32px currentColor, 0 0 48px currentColor;
+  }
+}
+
+/* 🆕 Breathing ring */
+@keyframes breathingRing {
+  0%, 100% {
+    transform: scale(1);
+    opacity: 0.5;
+  }
+  50% {
+    transform: scale(1.15);
+    opacity: 0.2;
+  }
+}
+
+/* 🆕 Aurora background */
+@keyframes aurora {
+  0%, 100% {
+    transform: translate(0, 0) rotate(0);
+  }
+  33% {
+    transform: translate(30px, -50px) rotate(120deg);
+  }
+  66% {
+    transform: translate(-20px, 20px) rotate(240deg);
+  }
+}
+
+/* =========================================================
+   11. Utility Classes
+   ========================================================= */
+.anim-fade-in      { animation: fadeIn 0.3s ease both; }
+.anim-fade-in-up   { animation: fadeInUp 0.4s ease both; }
+.anim-fade-in-down { animation: fadeInDown 0.4s ease both; }
+.anim-scale-in     { animation: scaleIn 0.3s ease both; }
+.anim-pop          { animation: pop 0.4s ease both; }
+.anim-bounce       { animation: bounceSoft 2s ease-in-out infinite; }
+.anim-pulse        { animation: pulse 2s ease-in-out infinite; }
+.anim-spin         { animation: spin 1s linear infinite; }
+.anim-wobble       { animation: wobble 3s ease-in-out infinite; }
+.anim-shake        { animation: shake 0.4s ease; }
+.anim-float        { animation: float 4s ease-in-out infinite; }
+.anim-glow         { animation: glowPulsePurple 2s ease-in-out infinite; }
+.anim-page-enter   { animation: pageEnter 0.4s cubic-bezier(0.2, 0.9, 0.3, 1.1) both; }
+.anim-card-entry   { animation: cardEntry 0.5s cubic-bezier(0.2, 0.9, 0.3, 1.1) both; }
+
+/* Stagger */
+.anim-delay-1 { animation-delay: 0.05s; }
+.anim-delay-2 { animation-delay: 0.10s; }
+.anim-delay-3 { animation-delay: 0.15s; }
+.anim-delay-4 { animation-delay: 0.20s; }
+.anim-delay-5 { animation-delay: 0.25s; }
+.anim-delay-6 { animation-delay: 0.30s; }
+.anim-delay-7 { animation-delay: 0.35s; }
+.anim-delay-8 { animation-delay: 0.40s; }
+
+/* =========================================================
+   12. 🆕 Enhanced Card Effects
+   ========================================================= */
+.card-tilt-wrap {
+  perspective: 1000px;
+  transform-style: preserve-3d;
+}
+
+.card-tilt {
+  transition: transform 0.3s cubic-bezier(0.2, 0.9, 0.3, 1.1),
+              box-shadow 0.3s ease;
+  will-change: transform;
+  transform-style: preserve-3d;
+}
+
+.card-shine {
+  position: relative;
+  overflow: hidden;
+}
+
+.card-shine::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 60%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.15),
+    transparent
+  );
+  transform: skewX(-20deg);
+  pointer-events: none;
+  z-index: 10;
+}
+
+.card-shine:hover::before {
+  animation: cardShine 0.8s ease;
+}
+
+/* =========================================================
+   13. 🆕 Ripple Effect
+   ========================================================= */
+.ripple-container {
+  position: relative;
+  overflow: hidden;
+}
+
+.ripple-effect {
+  position: absolute;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.35);
+  transform: scale(0);
+  animation: ripple 0.6s ease-out;
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* =========================================================
+   14. 🆕 Skeleton Loader
+   ========================================================= */
+.skeleton {
+  background: linear-gradient(
+    90deg,
+    rgba(255, 255, 255, 0.04) 0%,
+    rgba(255, 255, 255, 0.08) 50%,
+    rgba(255, 255, 255, 0.04) 100%
+  );
+  background-size: 200% 100%;
+  animation: shimmer 1.5s infinite;
+  border-radius: 8px;
+}
+
+.skeleton-card {
+  height: 180px;
+  border-radius: 20px;
+}
+
+/* =========================================================
+   15. 🆕 Floating Particles
+   ========================================================= */
+.floating-particles {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  overflow: hidden;
+}
+
+.floating-particle {
+  position: absolute;
+  border-radius: 50%;
+  opacity: 0.3;
+  animation: riseUp 8s linear infinite;
+  will-change: transform, opacity;
+}
+
+/* =========================================================
+   16. 🆕 Aurora Background
+   ========================================================= */
+.aurora-bg {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  overflow: hidden;
+}
+
+.aurora-blob {
+  position: absolute;
+  width: 500px;
+  height: 500px;
+  border-radius: 50%;
+  filter: blur(80px);
+  opacity: 0.4;
+  animation: aurora 20s infinite ease-in-out;
+}
+
+.aurora-blob-1 {
+  background: radial-gradient(circle, rgba(124, 92, 255, 0.6), transparent 70%);
+  top: -200px;
+  right: -100px;
+}
+
+.aurora-blob-2 {
+  background: radial-gradient(circle, rgba(0, 229, 255, 0.5), transparent 70%);
+  bottom: -200px;
+  left: -100px;
+  animation-delay: -7s;
+}
+
+.aurora-blob-3 {
+  background: radial-gradient(circle, rgba(255, 59, 123, 0.4), transparent 70%);
+  top: 40%;
+  left: 30%;
+  animation-delay: -14s;
+}
+
+/* =========================================================
+   17. 🆕 Magnetic Hover
+   ========================================================= */
+.magnetic {
+  transition: transform 0.3s cubic-bezier(0.2, 0.9, 0.3, 1.2);
+  will-change: transform;
+}
+
+/* =========================================================
+   18. 🆕 Count-up Number
+   ========================================================= */
+.count-up {
+  display: inline-block;
+  transition: transform 0.3s ease;
+}
+
+.count-up-bounce {
+  animation: pop 0.3s ease;
+}
+
+/* =========================================================
+   19. 🆕 Star Twinkle
+   ========================================================= */
+.star {
+  display: inline-block;
+  animation: starTwinkle 2s infinite;
+}
+
+/* =========================================================
+   20. 🆕 Respect Reduced Motion
+   ========================================================= */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
